@@ -21,7 +21,7 @@ protocol ViewToPresenterCharacterCardProtocol {
     var router: PresenterToRouterCharacterCardProtocol? { get set }
     
     func viewDidLoad()
-    func tapBackButton()
+    func tapCloseButton()
 }
 
 // MARK: - Interactor Input (Presenter -> Interactor)

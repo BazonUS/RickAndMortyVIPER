@@ -20,7 +20,7 @@ class CharacterCardPresenter: ViewToPresenterCharacterCardProtocol {
         interactor?.getData()
     }
     
-    func tapBackButton() {
+    func tapCloseButton() {
         debugLog(object: self)
         
         router?.navigateToPreviouslyScreen()

@@ -59,10 +59,11 @@ class CharacterCardViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var backButtonItem: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Back", for: .normal)
-        button.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
+    private lazy var closeButtonItem: UIButton = {
+        let button = UIButton()
+        button.configuration = .bordered()
+        button.setTitle("Close", for: .normal)
+        button.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
         return button
     }()
 
@@ -106,19 +107,20 @@ class CharacterCardViewController: UIViewController {
             make.height.equalTo(200)
         }
         
-        view.addSubview(backButtonItem)
-        backButtonItem.snp.makeConstraints { make in
-            make.height.equalTo(50)
+        view.addSubview(closeButtonItem)
+        closeButtonItem.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.width.equalTo(100)
+            make.centerX.equalToSuperview()
             make.top.equalTo(personalInfoStack.snp.bottom).offset(10)
-            make.left.right.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     //MARK: - Objc methods
-    @objc func tapBackButton() {
+    @objc func tapCloseButton() {
         debugLog(object: self)
 
-        presenter?.tapBackButton()
+        presenter?.tapCloseButton()
     }
 }
 //MARK: - PresenterToViewCharacterCardProtocol
